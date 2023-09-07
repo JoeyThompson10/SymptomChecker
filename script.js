@@ -49,8 +49,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-let teams;
-
 async function testButtonClicked() {
     const apiKey = "I19OYRieoRRrDLLTueM1K1KPUlbpOkbieslHEGW1OHj3USPybgbsd7TIzLHhOcok";
 
