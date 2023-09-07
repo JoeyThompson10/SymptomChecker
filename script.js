@@ -40,4 +40,33 @@ document.addEventListener("DOMContentLoaded", function() {
             window.location.href = 'index.html';
         });
     }
+
+    const testButton = document.getElementById('testButton');
+    if (testButton) {
+        testButton.addEventListener('click', function() {
+            testButtonClicked();
+        });
+    }
 });
+
+let teams;
+
+async function testButtonClicked() {
+    const apiKey = "I19OYRieoRRrDLLTueM1K1KPUlbpOkbieslHEGW1OHj3USPybgbsd7TIzLHhOcok";
+
+    const params = new URLSearchParams({
+        leagueName: "Major League Baseball"
+    });
+    
+    fetch('https://us-east-1.aws.data.mongodb-api.com/app/application-0-vhbaw/endpoint/GetTeamsInLeague?'+params, 
+    {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'bearer ' + apiKey, // Your API key
+        }
+    })
+    .then(response => response.json())
+    .then(data => alert(data))
+    .catch(err => console.error(err));
+}
